@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('reservation/list_room');
+});
+Route::prefix('reservation')->group(function () {
+    Route::get('/list_room', 'ReservationsController@all');
 });
