@@ -22,7 +22,7 @@ return new class extends Migration
                 $table->date('date_start');
                 $table->date('date_end');
                 $table->uuid();
-                $table->integer('room_id');
+                $table->unsignedBigInteger('room_id');
                 $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             });
         }

@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('reservation/list_room');
+    return view('/home');
 });
 Route::prefix('reservation')->group(function () {
-    Route::get('/list_room', 'ReservationsController@all');
+    Route::get('/create_reservation', 'App\Http\Controllers\ReservationsController@list')->name('list_room');
+    Route::post('/create_reservation', 'App\Http\Controllers\ReservationsController@create')->name('create_reservation');
+    Route::get('/view_reservation', 'App\Http\Controllers\ReservationsController@view')->name('view_reservation');
 });
