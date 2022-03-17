@@ -4,20 +4,25 @@
 {{--    <script src="{{asset('js/myScript.js')}}"></script>--}}
 @endsection
 @section('content')
-    <div class = "table">
-        <table>
-            <thead>
-            <tr>
-                <td>Room</td>
-                <td>Booker's name</td>
-                <td>Period</td>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Комната 1</td>
-                    <td>Хер моржов</td>
-                    <td>from 21-03-2022 to 22-03-2022</td>
-                </tr>
-            </tbody>
+    <div class="main-content">
+        <h1>Your personal reservation</h1>
+            <div class = "table">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>Room</td>
+                        <td>Booker's name</td>
+                        <td>Period</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{$room->name}}</td>
+                            <td>{{$reservation->name}}</td>
+                            <td>from {{Carbon\Carbon::parse($reservation->date_start)->format('d-m-Y')}}  to {{Carbon\Carbon::parse($reservation->date_end)->format('d-m-Y')}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
 @endsection

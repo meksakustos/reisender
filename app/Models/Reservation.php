@@ -18,7 +18,7 @@ class Reservation extends Model
     public $timestamps = false;
 
     public function room(){
-        return $this->hasOne("Room","id","room_id");
+        return $this->hasOne(Room::class,"id","room_id");
     }
     public function generatorUuid(){
         return (string) Str::uuid();

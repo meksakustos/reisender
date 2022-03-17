@@ -12,4 +12,7 @@ class Room extends Model
     protected $fillable = [
         'name'
     ];
+    public function reservation(){
+        return $this->belongsTo(Reservation::class, "room_id");
+    }
 }

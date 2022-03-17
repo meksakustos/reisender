@@ -36,10 +36,13 @@ class ReservationsController extends Controller
         ]);
     }
 
-    public function view()
+    public function view($id)
     {
-
-        return view('reservation.view_room', [
+        $reservation = Reservation::where('uuid',$id)->first();
+        $room = $reservation->room;
+        return view('reservation.view_reservation', [
+            'room' => $room,
+            'reservation' => $reservation
         ]);
     }
 
