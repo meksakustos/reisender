@@ -31,7 +31,7 @@ class ReservationsController extends Controller
     public function list()
     {
         $rooms = Room::all();
-        return view('reservation.create_reservation', [
+        return view('reservation.edit_reservation', [
             "rooms" => $rooms,
         ]);
     }
@@ -40,13 +40,13 @@ class ReservationsController extends Controller
     {
         $reservation = Reservation::where('uuid',$id)->first();
         $room = $reservation->room;
-        return view('reservation.view_reservation', [
+        return view('reservation.edit_reservation', [
             'room' => $room,
             'reservation' => $reservation
         ]);
     }
 
-    public function create()
+    public function create($id = null)
     {
         $validator = Validator::make($this->request->all(), [
             "name_client" => "required",
