@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('/home');
 });
 Route::prefix('reservation')->group(function () {
-    Route::get('/create_reservation', 'App\Http\Controllers\ReservationsController@list')->name('list_room');
+    Route::get('/create_reservation', 'App\Http\Controllers\ReservationsController@list')->name('booking');
     Route::post('/create_reservation', 'App\Http\Controllers\ReservationsController@create')->name('create_reservation');
     Route::get('/view_reservation/{id}', 'App\Http\Controllers\ReservationsController@view')->name('view_reservation');
 });

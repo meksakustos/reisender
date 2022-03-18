@@ -1,3 +1,58 @@
 body{
- width: 50%;
+    width: 100%;
+    height: 100%;
 }
+.container{
+    //background-image:url('../files/backi.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main-content{
+    margin: auto;
+    width: 800px;
+    text-align: center;
+    .form{
+        background: rgba( 0,0,0,.2);
+        border: 2px solid black;
+;
+        .element{
+            text-align: center;
+            input{
+                width: auto;
+            }
+        }
+    }
+    .table{}
+
+}
+.header{
+    width: 100%;
+    text-align: center;
+    background-image: url("../files/header_banner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 10px;
+    height: 150px;
+    .menu{
+        margin:auto;
+        a{
+            width:30px;
+            border: 1px solid green;
+            background-color: #7FFFD4;
+            text-decoration-line: none;
+        }
+    }
+}
+
+.btns{}
+.btn{}
+.footer{}
+
+
+
+
+
+
+

@@ -13,6 +13,7 @@
                         <td>Room</td>
                         <td>Booker's name</td>
                         <td>Period</td>
+                        <td></td>
                     </tr>
                     </thead>
                     <tbody>
@@ -20,6 +21,7 @@
                             <td>{{$room->name}}</td>
                             <td>{{$reservation->name}}</td>
                             <td>from {{Carbon\Carbon::parse($reservation->date_start)->format('d-m-Y')}}  to {{Carbon\Carbon::parse($reservation->date_end)->format('d-m-Y')}}</td>
+                            <td><button name="del">Delete</button></td>
                         </tr>
                     </tbody>
                 </table>

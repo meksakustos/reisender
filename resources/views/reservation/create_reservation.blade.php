@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'list-room')
+@section('title', 'Create reservation')
 @section('script')
     <script src="{{asset('js/myScript.js')}}"></script>
 @endsection
@@ -18,6 +18,7 @@
                     @endif
                 </div>
                 <div class="element">
+                    <p>DATE booking</p>
                     <label for="date_start">From</label>
                     <input type="text" name="date_start" id="date_start" class="datepick">
                     <label for="date_end">To</label>

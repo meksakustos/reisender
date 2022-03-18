@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
-    {{--    <link rel="stylesheet" href="{{asset('resources/css/style.css')}}">--}}
+        <link rel="stylesheet" href="{{asset('/css/style.css')}}">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
@@ -12,7 +12,22 @@
     @yield('script')
 </head>
 <body>
+<header>
+    <div class="header">
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="{{route('booking')}}">Booking</a>
+            <a href="/">About</a>
+        </div>
+    </div>
+</header>
 <div class="container">
     @yield('content')
 </div>
+<footer>
+<div class="footer">
+    <p>created Max</p>
+</div>
+</footer>
 </body>
+</html>
