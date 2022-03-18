@@ -67,6 +67,7 @@
                 </div>
             </form>
             <form action="{{route('delete_reservation', $reservation->uuid)}}" method="post">
+                {{ csrf_field() }}
                 <div class="btns">
                     <button class="btn">Delete Reservation</button>
                 </div>
