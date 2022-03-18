@@ -49,7 +49,7 @@ class ReservationsController extends Controller
             'current_room' => $room,
             'rooms' => Room::all(),
             'reservation' => $reservation,
-            'out_of_service' => time() > strtotime($reservation->date_start) || time() > strtotime($reservation->date_end)
+            'out_of_service' => time() > strtotime($reservation->date_start)
         ]);
     }
 
@@ -135,9 +135,12 @@ class ReservationsController extends Controller
 
     }
 
-    public function deleteReservation($id)
+    public function delete($id)
     {
-        $reservation = Reservation::find($id);
+        $reservation = Reservation::where('uuid', $id)->first();
+        if (null === $reservation) {
+            return $this->sendError(["Booking not found."]);
+        }
         $reservation->delete();
         return redirect(route('booking'));
     }
