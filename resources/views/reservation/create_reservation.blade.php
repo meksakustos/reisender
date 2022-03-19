@@ -8,10 +8,11 @@
         <div class="form">
             <form action="{{route('create_reservation')}}" method="post">
                 {{ csrf_field() }}
-
+                <div class=" element alert alert-danger">
                 @if (session('error'))
-                    <div class="alert alert-danger">{{ session('error') }}</div>
+                   {{ session('error') }}
                 @endif
+                </div>
                 <div class="element">
                     <label for="roomsel">Room</label>
                     @if($rooms)
@@ -41,7 +42,7 @@
                 <div class="element">
                     <label for="phone">Telefonummer</label>
                     <input type="tel" name="phone" value="" id="phone"
-                           class="" required>
+                           class="" required minlength="14">
                 </div>
                 <div class="btns">
                         <button class="btn">Book</button>

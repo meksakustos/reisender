@@ -30,24 +30,21 @@ class Reservation extends Model
         $end_date = $this->date_end;
         $room_id = $this->room_id;
         $id = $this->getKey();
-        $reservAll = Reservation::where('room_id', $room_id)->get();
-        if($reservAll->count() !== 0){
-        return 0 == Reservation::where('room_id', $room_id)->
+        return 0 == Reservation::
             where(function($query) use ($start_date, $end_date, $room_id, $id) {
                 if ($id) {
                     $query->where('id', '<>', $id);
                 }
+                $query->where('room_id', '>=', $room_id);
                 $query->whereDate('date_start', '>=', $start_date);
                 $query->whereDate('date_start', '<=', $end_date);
             })->orWhere(function($query) use ($start_date, $end_date, $room_id, $id) {
                 if ($id) {
                     $query->where('id', '<>', $id);
                 }
+                $query->where('room_id', '>=', $room_id);
                 $query->whereDate('date_end', '>=', $start_date);
                 $query->whereDate('date_end', '<=', $end_date);
             })->count();
-        }else{
-            return 1;
-        }
     }
 }

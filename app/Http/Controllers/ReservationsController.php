@@ -58,7 +58,7 @@ class ReservationsController extends Controller
         $validator = Validator::make($this->request->all(), [
             "name_client" => "required",
             "email"      => "required|email",
-            "phone"       => "required",
+            "phone"       => "required|",
             "date_start"   => "required",
             "date_end"   => "required",
         ]);

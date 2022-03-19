@@ -1,0 +1,97 @@
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  height: 400px;
+}
+
+.main-content {
+  margin: auto;
+  width: 800px;
+}
+.main-content .form {
+  height: 260px;
+  background: #febb02;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+.main-content .form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+.main-content .form form .element {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  gap: 10px;
+  width: 360px;
+  margin: auto;
+  padding-bottom: 10px;
+}
+.main-content .form form .element:nth-child(7) {
+  padding-bottom: 5px;
+}
+.main-content .form form .element label {
+  margin: 5px;
+}
+.main-content .form form .element input, .main-content .form form .element select {
+  margin: 5px;
+  width: 180px;
+}
+.header {
+  width: 100%;
+  text-align: center;
+  background-image: url("../files/header_banner.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 10px;
+  height: 150px;
+}
+.header .menu {
+  margin: auto;
+}
+.header .menu a {
+  width: 30px;
+  border: 1px solid green;
+  background-color: #7FFFD4;
+  text-decoration-line: none;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  box-shadow: 0 1px 4px black, -23px 0 20px -23px rgba(0, 0, 0, 0.8), 23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  background-color: white;
+  width: 150px;
+  height: 30px;
+  -webkit-transition: background-color 1s ease-out;
+  -moz-transition: background-color 1s ease-out;
+  -o-transition: background-color 1s ease-out;
+  transition: background-color 1s ease-out;
+}
+.btn:hover {
+  background-color: #b0feff;
+  cursor: pointer;
+  -webkit-transition: background-color 1s ease-out;
+  -moz-transition: background-color 1s ease-out;
+  -o-transition: background-color 1s ease-out;
+  transition: background-color 1s ease-out;
+}
+
+.footer {
+  height: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */

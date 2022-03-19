@@ -29,10 +29,10 @@ body{
                 justify-content: space-between;
                 align-content: center;
                 gap: 10px;
-                width:300px;
+                width:360px;
                 margin: auto;
                 padding-bottom: 10px;
-                &:nth-child(6){
+                &:nth-child(7){
                     padding-bottom: 5px;
                 }
                 label{
@@ -40,7 +40,7 @@ body{
                 }
                 input, select{
                     margin:5px;
-                    width: 150px;
+                    width: 180px;
                 }
             }
         }
