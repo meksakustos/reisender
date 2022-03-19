@@ -20,24 +20,24 @@
                 <div class="element">
                     <p>DATE booking</p>
                     <label for="date_start">From</label>
-                    <input type="text" name="date_start" id="date_start" class="datepick">
+                    <input type="text" name="date_start" id="date_start" class="datepick" required>
                     <label for="date_end">To</label>
-                    <input type="text" name="date_end" id="date_end" class="datepick">
+                    <input type="text" name="date_end" id="date_end" class="datepick" required>
                 </div>
                 <div class="element">
                     <label for="name_client">Nach- und Vorname</label>
                     <input type="text" name="name_client" value="" id="name_client"
-                           class="">
+                           class="" required>
                 </div>
                 <div class="element">
                     <label for="email">Email</label>
                     <input type="email" name="email" value="" id="email"
-                           class="">
+                           class="" required>
                 </div>
                 <div class="element">
                     <label for="phone">Telefonummer</label>
                     <input type="tel" name="phone" value="" id="phone"
-                           class="">
+                           class="" required>
                 </div>
                 <div class="btns">
                         <button class="btn">Submit</button>

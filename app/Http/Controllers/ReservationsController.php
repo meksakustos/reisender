@@ -72,10 +72,13 @@ class ReservationsController extends Controller
                 $reservation->name = $this->request->name_client;
                 $reservation->email = $this->request->email;
                 $reservation->phone = $this->request->phone;
-                $reservation->date_start = Carbon::createFromFormat('d-m-Y', $this->request->date_start);
-                $reservation->date_end = Carbon::createFromFormat('d-m-Y', $this->request->date_end);
+                $reservation->date_start = Carbon::createFromFormat('d.m.Y', $this->request->date_start);
+                $reservation->date_end = Carbon::createFromFormat('d.m.Y', $this->request->date_end);
                 $reservation->room_id = $this->request->room_name;
                 $reservation->uuid = $reservation->generatorUuid();
+                if (!$reservation->validate()) {
+                    throw new \Exception('The room is occupied during this period.', 10000);
+                }
                 $reservation->save();
                 Mail::to($this->request->email)->send(new reservationLink($reservation));
 
@@ -84,14 +87,15 @@ class ReservationsController extends Controller
 
             return redirect('/');
         } catch (\Exception $exception) {
-            $code_errors_array = [4444];
+            $code_errors_array = [4444, 10000];
             if (in_array($exception->getCode(),$code_errors_array)){
                 return $this->sendError([$exception->getMessage()]);
             }else{
-                return $this->sendError(["Ошибка сохранения данных"]);
+                return $this->sendError([$exception->getMessage()]);
             }
         }
     }
+
 
     public function update($id = null)
     {
@@ -121,15 +125,18 @@ class ReservationsController extends Controller
                 $reservation->date_start = Carbon::createFromFormat('d.m.Y', $this->request->date_start);
                 $reservation->date_end = Carbon::createFromFormat('d.m.Y', $this->request->date_end);
                 $reservation->room_id = $this->request->room_name;
+                if (!$reservation->validate()) {
+                    throw new \Exception('The room is occupied during this period.', 10000);
+                }
                 $reservation->save();
             });
             return redirect('/');
         } catch (\Exception $exception) {
-            $code_errors_array = [4444];
+            $code_errors_array = [4444, 10000];
             if (in_array($exception->getCode(),$code_errors_array)){
                 return $this->sendError([$exception->getMessage()]);
             }else{
-                return $this->sendError(["Failed to update booking. " . $exception->getMessage()]);
+                return $this->sendError(["Failed to update booking."]);
             }
         }
 
