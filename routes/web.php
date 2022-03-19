@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('/home');
 });
+Route::get('/home', function () {
+    return view('/home');
+});
 Route::prefix('reservation')->group(function () {
     Route::get('/create_reservation', 'App\Http\Controllers\ReservationsController@list')->name('booking');
     Route::post('/create_reservation', 'App\Http\Controllers\ReservationsController@create')->name('create_reservation');

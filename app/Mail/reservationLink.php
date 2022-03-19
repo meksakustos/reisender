@@ -35,6 +35,6 @@ class reservationLink extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.email_reservation_template');
+        return $this->subject('Buchungsinformation')->markdown('emails.email_reservation_template');
     }
 }

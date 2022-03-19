@@ -30,6 +30,8 @@ class Reservation extends Model
         $end_date = $this->date_end;
         $room_id = $this->room_id;
         $id = $this->getKey();
+        $reservAll = Reservation::where('room_id', $room_id)->get();
+        if($reservAll->count() !== 0){
         return 0 == Reservation::where('room_id', $room_id)->
             where(function($query) use ($start_date, $end_date, $room_id, $id) {
                 if ($id) {
@@ -44,5 +46,8 @@ class Reservation extends Model
                 $query->whereDate('date_end', '>=', $start_date);
                 $query->whereDate('date_end', '<=', $end_date);
             })->count();
+        }else{
+            return 1;
+        }
     }
 }

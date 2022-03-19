@@ -57,7 +57,7 @@ class ReservationsController extends Controller
     {
         $validator = Validator::make($this->request->all(), [
             "name_client" => "required",
-            "email"      => "required|max:100",
+            "email"      => "required|email",
             "phone"       => "required",
             "date_start"   => "required",
             "date_end"   => "required",
@@ -65,6 +65,9 @@ class ReservationsController extends Controller
 
         if ($validator->fails()) {
             return $this->sendError($validator->errors()->all());
+        }
+        if($this->request->date_start > $this->request->date_end){
+            return $this->sendError(['The start date must be less than the end date']);
         }
         try {
             DB::transaction(function () {
@@ -89,9 +92,9 @@ class ReservationsController extends Controller
         } catch (\Exception $exception) {
             $code_errors_array = [4444, 10000];
             if (in_array($exception->getCode(),$code_errors_array)){
-                return $this->sendError([$exception->getMessage()]);
+                return back()->withError($exception->getMessage());
             }else{
-                return $this->sendError([$exception->getMessage()]);
+                return back()->withError($exception->getMessage());
             }
         }
     }
@@ -104,7 +107,7 @@ class ReservationsController extends Controller
         }
         $validator = Validator::make($this->request->all(), [
             "name_client" => "required",
-            "email"      => "required|max:100",
+            "email"      => "required|email",
             "phone"       => "required",
             "date_start"   => "required",
             "date_end"   => "required",

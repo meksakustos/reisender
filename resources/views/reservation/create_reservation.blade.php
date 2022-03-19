@@ -8,9 +8,14 @@
         <div class="form">
             <form action="{{route('create_reservation')}}" method="post">
                 {{ csrf_field() }}
+
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
                 <div class="element">
+                    <label for="roomsel">Room</label>
                     @if($rooms)
-                        <select name="room_name">
+                        <select name="room_name" id="roomsel">
                             @foreach($rooms as $room)
                                 <option value="{{$room->id}}">{{$room->name}}</option>
                             @endforeach
@@ -18,11 +23,10 @@
                     @endif
                 </div>
                 <div class="element">
-                    <p>DATE booking</p>
-                    <label for="date_start">From</label>
-                    <input type="text" name="date_start" id="date_start" class="datepick" required>
-                    <label for="date_end">To</label>
-                    <input type="text" name="date_end" id="date_end" class="datepick" required>
+                        <label for="date_start">From</label>
+                        <input type="text" name="date_start" id="date_start" class="datepick" required autocomplete="off">
+                        <label for="date_end">To</label>
+                        <input type="text" name="date_end" id="date_end" class="datepick" required autocomplete="off">
                 </div>
                 <div class="element">
                     <label for="name_client">Nach- und Vorname</label>
@@ -40,7 +44,7 @@
                            class="" required>
                 </div>
                 <div class="btns">
-                        <button class="btn">Submit</button>
+                        <button class="btn">Book</button>
                 </div>
             </form>
         </div>

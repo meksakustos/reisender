@@ -6,7 +6,7 @@
     <title>@yield('title')</title>
         <link rel="stylesheet" href="{{asset('/css/style.css')}}">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     @yield('script')
@@ -26,7 +26,8 @@
 </div>
 <footer>
 <div class="footer">
-    <p>created Max</p>
+    <hr>
+    <p>Developed by Max on laravel</p>
 </div>
 </footer>
 </body>

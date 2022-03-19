@@ -8,6 +8,7 @@
         <h1>Your personal reservation</h1>
         @if($out_of_service)
             <h3>Reservation is expired.</h3>
+        <div class="table">
             <table>
                 <thead>
                 <tr>
@@ -24,6 +25,7 @@
                 </tr>
                 </tbody>
             </table>
+        </div>
         @else
             <form action="{{route('update_reservation', $reservation->uuid)}}" method="post">
                 {{ csrf_field() }}
