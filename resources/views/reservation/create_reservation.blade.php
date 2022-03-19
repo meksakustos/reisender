@@ -2,17 +2,19 @@
 @section('title', 'Create reservation')
 @section('script')
     <script src="{{asset('js/myScript.js')}}"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 @endsection
 @section('content')
     <div class="main-content">
         <div class="form">
             <form action="{{route('create_reservation')}}" method="post">
                 {{ csrf_field() }}
-                <div class=" element alert alert-danger">
                 @if (session('error'))
-                   {{ session('error') }}
+                    <div class=" element alert alert-danger">{{ session('error') }}</div>
                 @endif
-                </div>
+
                 <div class="element">
                     <label for="roomsel">Room</label>
                     @if($rooms)
@@ -24,10 +26,8 @@
                     @endif
                 </div>
                 <div class="element">
-                        <label for="date_start">From</label>
-                        <input type="text" name="date_start" id="date_start" class="datepick" required autocomplete="off">
-                        <label for="date_end">To</label>
-                        <input type="text" name="date_end" id="date_end" class="datepick" required autocomplete="off">
+                        <label for="date">Date</label>
+                        <input type="text" name="date" id="date" class="datepick" value="" required autocomplete="off">
                 </div>
                 <div class="element">
                     <label for="name_client">Nach- und Vorname</label>

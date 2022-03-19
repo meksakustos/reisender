@@ -58,25 +58,23 @@ class ReservationsController extends Controller
         $validator = Validator::make($this->request->all(), [
             "name_client" => "required",
             "email"      => "required|email",
-            "phone"       => "required|",
-            "date_start"   => "required",
-            "date_end"   => "required",
+            "phone"       => "required",
+            "date"   => "required",
         ]);
 
         if ($validator->fails()) {
             return $this->sendError($validator->errors()->all());
         }
-        if($this->request->date_start > $this->request->date_end){
-            return $this->sendError(['The start date must be less than the end date']);
-        }
+        $date = explode(' - ', $this->request->date);
+
         try {
-            DB::transaction(function () {
+            DB::transaction(function () use($date) {
                 $reservation = new Reservation();
                 $reservation->name = $this->request->name_client;
                 $reservation->email = $this->request->email;
                 $reservation->phone = $this->request->phone;
-                $reservation->date_start = Carbon::createFromFormat('d.m.Y', $this->request->date_start);
-                $reservation->date_end = Carbon::createFromFormat('d.m.Y', $this->request->date_end);
+                $reservation->date_start = Carbon::createFromFormat('d.m.Y', $date[0]);
+                $reservation->date_end = Carbon::createFromFormat('d.m.Y', $date[1]);
                 $reservation->room_id = $this->request->room_name;
                 $reservation->uuid = $reservation->generatorUuid();
                 if (!$reservation->validate()) {
@@ -86,7 +84,6 @@ class ReservationsController extends Controller
                 Mail::to($this->request->email)->send(new reservationLink($reservation));
 
             });
-
 
             return redirect('/');
         } catch (\Exception $exception) {
