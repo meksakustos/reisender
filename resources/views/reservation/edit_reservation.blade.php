@@ -8,15 +8,15 @@
 @endsection
 @section('content')
     <div class="main-content">
-        <h1>Your personal reservation</h1>
+        <h1>Ihre persönliche Reservierung</h1>
         @if($out_of_service)
-            <h3>Reservation is expired.</h3>
+            <h3>Die Reservierung ist abgelaufen.</h3>
         <div class="table  table-warning table-bordered">
             <table>
                 <thead class="table-success">
                 <tr>
                     <td>Zimmer</td>
-                    <td>Name</td>
+                    <td>Nach- und Vorname</td>
                     <td>Period</td>
                 </tr>
                 </thead>
@@ -71,13 +71,13 @@
                         <label for="phone">Telefonummer</label>
                     </div>
                     <div class="btns">
-                        <button class="btn  btn-success">Update</button>
+                        <button class="btn  btn-success">Aktualisieren</button>
                     </div>
                 </form>
                 <form action="{{route('delete_reservation', $reservation->uuid)}}" method="post" class="form-floating del-form">
                     {{ csrf_field() }}
                     <div class="btns">
-                        <button class="btn btn-danger">Delete Reservation</button>
+                        <button class="btn btn-danger">Reservierung löschen</button>
                     </div>
                 </form>
             </div>

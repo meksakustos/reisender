@@ -9,7 +9,7 @@
                 <tr>
                     <td>Bookers Name</td>
                     <td>Zimmer</td>
-                    <td>Date booking:</td>
+                    <td>Datum booking:</td>
                 </tr>
             </thead>
             <tbody>

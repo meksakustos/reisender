@@ -43,7 +43,7 @@ class ReservationsController extends Controller
     {
         $reservation = Reservation::where('uuid',$id)->first();
         if (null === $reservation) {
-            return $this->sendError(["Booking not found."]);
+            return $this->sendError(["Buchung nicht gefunden."]);
         }
         $room = $reservation->room;
         return view('reservation.edit_reservation', [
@@ -79,7 +79,7 @@ class ReservationsController extends Controller
                 $reservation->room_id = $this->request->room_name;
                 $reservation->uuid = $reservation->generatorUuid();
                 if (!$reservation->validate()) {
-                    throw new \Exception('The room is occupied during this period.', 10000);
+                    throw new \Exception('In dieser Zeit ist das Zimmer belegt.', 10000);
                 }
                 $reservation->save();
 
@@ -102,7 +102,7 @@ class ReservationsController extends Controller
     public function update($id = null)
     {
         if (null === $id) {
-            return $this->sendError(["Booking not found."]);
+            return $this->sendError(["Buchung nicht gefunden."]);
         }
         $validator = Validator::make($this->request->all(), [
             "name_client" => "required",
@@ -117,7 +117,7 @@ class ReservationsController extends Controller
         $date = explode(' - ', $this->request->date);
         $reservation = Reservation::where('uuid', $id)->first();
         if (null === $reservation) {
-            return $this->sendError(["Booking not found."]);
+            return $this->sendError(["Buchung nicht gefunden."]);
         }
         try {
             DB::transaction(function () use ($reservation, $date) {
@@ -128,7 +128,7 @@ class ReservationsController extends Controller
                 $reservation->date_end = Carbon::createFromFormat('d.m.Y', $date[1]);
                 $reservation->room_id = $this->request->room_name;
                 if (!$reservation->validate()) {
-                    throw new \Exception('The room is occupied during this period.', 10000);
+                    throw new \Exception('In dieser Zeit ist das Zimmer belegt.', 10000);
                 }
                 $reservation->save();
                 Mail::to($this->request->email)->send(new reservationLink($reservation));
@@ -139,7 +139,7 @@ class ReservationsController extends Controller
             if (in_array($exception->getCode(),$code_errors_array)){
                 return $this->sendError([$exception->getMessage()])->withInput();
             }else{
-                return $this->sendError(["Failed to update booking."]);
+                return $this->sendError(["Fehler bei der Aktualisierung der Buchung."]);
             }
         }
 
@@ -149,7 +149,7 @@ class ReservationsController extends Controller
     {
         $reservation = Reservation::where('uuid', $id)->first();
         if (null === $reservation) {
-            return $this->sendError(["Booking not found."]);
+            return $this->sendError(["Buchung nicht gefunden."]);
         }
         $reservation->delete();
         return redirect(route('booking'));

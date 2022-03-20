@@ -32,7 +32,7 @@
                 </div>
                 <div class="element form-floating">
                         <input type="text" name="date" id="date" class="datepick form-control " value="{{old('date')}}" required autocomplete="off">
-                    <label for="date">Date</label>
+                    <label for="date">Zeit Raum</label>
 
                 </div>
                 <div class="element form-floating ">
