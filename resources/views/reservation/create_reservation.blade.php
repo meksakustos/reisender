@@ -48,7 +48,7 @@
                 </div>
                 <div class="element form-floating">
                     <input type="tel" name="phone" value="{{old('phone')}}" id="phone"
-                           class="form-control" required minlength="14">
+                           class="form-control" required minlength="10">
                     <label for="phone">Telefonummer</label>
 
                 </div>
