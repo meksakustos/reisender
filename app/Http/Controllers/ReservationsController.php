@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 class ReservationsController extends Controller
 {
     public $request;
+    public $uuidForUrl;
 
     /**
      * Handle the incoming request.
@@ -81,11 +82,12 @@ class ReservationsController extends Controller
                     throw new \Exception('The room is occupied during this period.', 10000);
                 }
                 $reservation->save();
-                Mail::to($this->request->email)->send(new reservationLink($reservation));
 
+                Mail::to($this->request->email)->send(new reservationLink($reservation));
+                $this->uuidForUrl = $reservation->uuid;
             });
 
-            return redirect('/');
+            return redirect(route('edit_reservation',['id' =>$this->uuidForUrl]));
         } catch (\Exception $exception) {
             $code_errors_array = [4444, 10000];
             if (in_array($exception->getCode(),$code_errors_array)){
@@ -106,31 +108,32 @@ class ReservationsController extends Controller
             "name_client" => "required",
             "email"      => "required|email",
             "phone"       => "required",
-            "date_start"   => "required",
-            "date_end"   => "required",
+            "date"   => "required"
         ]);
 
         if ($validator->fails()) {
             return $this->sendError($validator->errors()->all());
         }
+        $date = explode(' - ', $this->request->date);
         $reservation = Reservation::where('uuid', $id)->first();
         if (null === $reservation) {
             return $this->sendError(["Booking not found."]);
         }
         try {
-            DB::transaction(function () use ($reservation) {
+            DB::transaction(function () use ($reservation, $date) {
                 $reservation->name = $this->request->name_client;
                 $reservation->email = $this->request->email;
                 $reservation->phone = $this->request->phone;
-                $reservation->date_start = Carbon::createFromFormat('d.m.Y', $this->request->date_start);
-                $reservation->date_end = Carbon::createFromFormat('d.m.Y', $this->request->date_end);
+                $reservation->date_start = Carbon::createFromFormat('d.m.Y', $date[0]);
+                $reservation->date_end = Carbon::createFromFormat('d.m.Y', $date[1]);
                 $reservation->room_id = $this->request->room_name;
                 if (!$reservation->validate()) {
                     throw new \Exception('The room is occupied during this period.', 10000);
                 }
                 $reservation->save();
+                Mail::to($this->request->email)->send(new reservationLink($reservation));
             });
-            return redirect('/');
+            return redirect(route('edit_reservation', $reservation->uuid));
         } catch (\Exception $exception) {
             $code_errors_array = [4444, 10000];
             if (in_array($exception->getCode(),$code_errors_array)){

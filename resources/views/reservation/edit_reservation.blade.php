@@ -15,7 +15,7 @@
             <table>
                 <thead class="table-success">
                 <tr>
-                    <td>Room</td>
+                    <td>Zimmer</td>
                     <td>Name</td>
                     <td>Period</td>
                 </tr>
@@ -44,7 +44,7 @@
                                     >{{$room->name}}</option>
                                 @endforeach
                             </select>
-                            <label for="roomsel">Room</label>
+                            <label for="roomsel">Zimmer</label>
 
                         @endif
                     </div>

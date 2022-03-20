@@ -22,27 +22,27 @@
                                 <option value="{{$room->id}}">{{$room->name}}</option>
                             @endforeach
                         </select>
-                        <label for="roomsel">Room</label>
+                        <label for="roomsel">Zimmer</label>
                     @endif
                 </div>
                 <div class="element form-floating">
-                        <input type="text" name="date" id="date" class="datepick form-control " value="" required autocomplete="off">
+                        <input type="text" name="date" id="date" class="datepick form-control " value="{{old('date')}}" required autocomplete="off">
                     <label for="date">Date</label>
 
                 </div>
                 <div class="element form-floating ">
-                    <input type="text" name="name_client" value="" id="name_client"
+                    <input type="text" name="name_client" value="{{old('name_client')}}" id="name_client"
                            class="form-control" required>
                     <label for="name_client">Nach- und Vorname</label>
 
                 </div>
                 <div class="element form-floating">
-                    <input type="email" name="email" value="" id="email"
+                    <input type="email" name="email" value="{{old('email')}}" id="email"
                            class="form-control" required>
                     <label for="email">Email</label>
                 </div>
                 <div class="element form-floating">
-                    <input type="tel" name="phone" value="" id="phone"
+                    <input type="tel" name="phone" value="{{old('phone')}}" id="phone"
                            class="form-control" required minlength="14">
                     <label for="phone">Telefonummer</label>
 

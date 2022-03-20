@@ -28,7 +28,6 @@
         <div class="menu">
             <a href="/" class="btn btn-success">Home</a>
             <a href="{{route('booking')}}" class="btn btn-success">Booking</a>
-            <a href="/" class="btn btn-success">About</a>
         </div>
     </div>
 </header>
