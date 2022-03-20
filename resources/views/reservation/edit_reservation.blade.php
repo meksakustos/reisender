@@ -49,7 +49,7 @@
                         @endif
                     </div>
                     <div class="element form-floating">
-                        <input type="text" name="date" id="date" class="datepick form-control " value="{{Carbon\Carbon::parse($reservation->date_start)->format('d.m.Y')}} -{{Carbon\Carbon::parse($reservation->date_end)->format('d.m.Y')}} " required autocomplete="off">
+                        <input type="text" name="date" id="date" class="datepick form-control " value="{{Carbon\Carbon::parse($reservation->date_start)->format('d.m.Y')}} - {{Carbon\Carbon::parse($reservation->date_end)->format('d.m.Y')}} " required autocomplete="off">
                         <label for="date">Date</label>
 
                     </div>
