@@ -27,7 +27,7 @@
         </div>
         <div class="menu">
             <a href="/" class="btn btn-success">Home</a>
-            <a href="{{route('booking')}}" class="btn btn-success">Booking</a>
+            <a href="{{route('booking')}}" class="btn btn-success">Buchung</a>
         </div>
     </div>
 </header>
@@ -36,7 +36,7 @@
 </div>
 <footer>
 <div class="footer">
-    <p>Developed by Max on laravel</p>
+    <p>Entwickelt von Max auf Laravel</p>
 </div>
 </footer>
 </body>
