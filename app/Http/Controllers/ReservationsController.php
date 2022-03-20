@@ -91,9 +91,9 @@ class ReservationsController extends Controller
         } catch (\Exception $exception) {
             $code_errors_array = [4444, 10000];
             if (in_array($exception->getCode(),$code_errors_array)){
-                return back()->withError($exception->getMessage());
+                return back()->withError($exception->getMessage())->withInput();
             }else{
-                return back()->withError($exception->getMessage());
+                return back()->withError($exception->getMessage())->withInput();
             }
         }
     }
@@ -137,7 +137,7 @@ class ReservationsController extends Controller
         } catch (\Exception $exception) {
             $code_errors_array = [4444, 10000];
             if (in_array($exception->getCode(),$code_errors_array)){
-                return $this->sendError([$exception->getMessage()]);
+                return $this->sendError([$exception->getMessage()])->withInput();
             }else{
                 return $this->sendError(["Failed to update booking."]);
             }

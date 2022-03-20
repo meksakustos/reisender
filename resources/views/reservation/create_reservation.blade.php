@@ -19,7 +19,12 @@
                     @if($rooms)
                         <select name="room_name" id="roomsel" class="form-select" aria-label="Default select example">
                             @foreach($rooms as $room)
-                                <option value="{{$room->id}}">{{$room->name}}</option>
+
+                                <option value="{{$room->id}}"
+                                @if($room->id == old('room_name'))
+                                    selected="selected"
+                                    @endif
+                                    >{{$room->name}}</option>
                             @endforeach
                         </select>
                         <label for="roomsel">Zimmer</label>
