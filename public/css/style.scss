@@ -20,6 +20,10 @@ body {
 
     .home-content{
       text-align:left;
+        img{
+            max-height:400px;
+            object-fit:cover;
+        }
     }
 
     .form {

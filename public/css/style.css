@@ -20,6 +20,10 @@ body {
 .main-content .home-content {
   text-align: left;
 }
+.main-content .home-content img {
+  max-height: 400px;
+  object-fit: cover;
+}
 .main-content .form {
   background: #febb02;
   border: 2px solid black;
