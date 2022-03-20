@@ -36,7 +36,6 @@
 </div>
 <footer>
 <div class="footer">
-    <hr>
     <p>Developed by Max on laravel</p>
 </div>
 </footer>

@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $('input[name="date"]').daterangepicker({
         autoUpdateInput: false,
+        minDate: new Date(),
+        autoApply: true,
         locale: {format: 'DD.MM.YYYY', cancelLabel: 'Clear'}
     });
     $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {

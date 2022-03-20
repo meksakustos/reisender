@@ -48,7 +48,7 @@
 
                 </div>
                 <div class="btns">
-                        <button class="btn  btn-primary">Book</button>
+                        <button class="btn  btn-primary">Reserve</button>
                 </div>
             </form>
         </div>
