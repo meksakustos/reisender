@@ -1,4 +1,4 @@
-body{
+body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -7,47 +7,65 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-.container{
-    height: 400px;
+
+.container {
+    height: 600px;
 }
-.main-content{
+
+.main-content {
     margin: auto;
     width: 800px;
-    .form{
+    text-align: center;
+    font-size: 16px;
+
+    .home-content{
+      text-align:left;
+    }
+
+    .form {
         background: #febb02;
         //background-image: linear-gradient(to bottom right, green, cyan);
         border: 2px solid black;
         border-radius: 15px;
-        form{
-            display:flex;
+
+        form {
+            display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 10px;
-            .element{
+            padding: 20px;
+
+            .element {
                 display: flex;
-                justify-content: space-between;
-                align-content: center;
-                gap: 10px;
-                width:360px;
                 margin: auto;
                 padding-bottom: 10px;
-                &:nth-child(7){
+
+                &:nth-child(7) {
                     padding-bottom: 5px;
                 }
-                label{
+
+                label {
                     margin: 5px;
                 }
-                input, select{
-                    margin:5px;
-                    width: 180px;
+
+                input, select {
+                    margin: 5px;
+                    width: 260px;
                 }
             }
         }
     }
-    .table{}
+
+    .table {
+        width: 100%;
+        table{
+            width: 100%;
+            text-align: center;
+        }
+    }
 
 }
-.header{
+
+.header {
     width: 100%;
     text-align: center;
     background-image: url("../files/header_banner.jpg");
@@ -56,44 +74,61 @@ body{
     background-size: cover;
     margin-bottom: 10px;
     height: 150px;
-    .menu{
-        margin:auto;
-        a{
-            width:30px;
-            border: 1px solid green;
-            background-color: #7FFFD4;
-            text-decoration-line: none;
-        }
+
+    .menu {
+        margin: auto;
+        width: 30%;
+        padding-top: 47px;
+        //a{
+        //    width:30px;
+        //    border: 1px solid green;
+        //    background-color: #7FFFD4;
+        //    text-decoration-line: none;
+        //}
+    }
+
+    .logo_name {
+        display: inline-flex;
+        float: left;
+        -webkit-text-stroke: 2px black;
+        -webkit-text-fill-color: #febb02;
+        margin-top: 44px;
+        padding-left: 10px;
     }
 }
 
-.btns{
+.btns {
     display: flex;
     justify-content: center;
 }
-.btn{
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 1),
-    -23px 0 20px -23px rgba(0, 0, 0, .8),
-    23px 0 20px -23px rgba(0, 0, 0, .8),
-    0 0 40px rgba(0, 0, 0, .1) inset;
-    background-color: white;
-    width: 150px;
-    height:30px;
-    -webkit-transition: background-color 1s ease-out;
-    -moz-transition: background-color 1s ease-out;
-    -o-transition: background-color 1s ease-out;
-    transition: background-color 1s ease-out;
-    &:hover{
-        background-color: #b0feff;
-        cursor: pointer;
-        -webkit-transition: background-color 1s ease-out;
-        -moz-transition: background-color 1s ease-out;
-        -o-transition: background-color 1s ease-out;
-        transition: background-color 1s ease-out;
 
-    }
+.btn {
+    width: 150px;
+    margin: 0 10px;
 }
-.footer{
+
+//.btn{
+//    box-shadow: 0 1px 4px rgba(0, 0, 0, 1),
+//    -23px 0 20px -23px rgba(0, 0, 0, .8),
+//    23px 0 20px -23px rgba(0, 0, 0, .8),
+//    0 0 40px rgba(0, 0, 0, .1) inset;
+//    background-color: white;
+
+//    -webkit-transition: background-color 1s ease-out;
+//    -moz-transition: background-color 1s ease-out;
+//    -o-transition: background-color 1s ease-out;
+//    transition: background-color 1s ease-out;
+//    &:hover{
+//        background-color: #b0feff;
+//        cursor: pointer;
+//        -webkit-transition: background-color 1s ease-out;
+//        -moz-transition: background-color 1s ease-out;
+//        -o-transition: background-color 1s ease-out;
+//        transition: background-color 1s ease-out;
+//
+//    }
+//}
+.footer {
     height: 50px;
 }
 

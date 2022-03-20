@@ -21,10 +21,13 @@
 <body>
 <header>
     <div class="header">
+        <div class="logo_name">
+            <h1>REISENDER</h1>
+        </div>
         <div class="menu">
-            <a href="/">Home</a>
-            <a href="{{route('booking')}}">Booking</a>
-            <a href="/">About</a>
+            <a href="/" class="btn btn-success">Home</a>
+            <a href="{{route('booking')}}" class="btn btn-success">Booking</a>
+            <a href="/" class="btn btn-success">About</a>
         </div>
     </div>
 </header>
@@ -38,4 +41,5 @@
 </div>
 </footer>
 </body>
+
 </html>

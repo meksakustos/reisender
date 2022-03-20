@@ -8,12 +8,17 @@ body {
 }
 
 .container {
-  height: 400px;
+  height: 600px;
 }
 
 .main-content {
   margin: auto;
   width: 800px;
+  text-align: center;
+  font-size: 16px;
+}
+.main-content .home-content {
+  text-align: left;
 }
 .main-content .form {
   background: #febb02;
@@ -24,14 +29,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 20px;
 }
 .main-content .form form .element {
   display: flex;
-  justify-content: space-between;
-  align-content: center;
-  gap: 10px;
-  width: 360px;
   margin: auto;
   padding-bottom: 10px;
 }
@@ -43,8 +44,16 @@ body {
 }
 .main-content .form form .element input, .main-content .form form .element select {
   margin: 5px;
-  width: 180px;
+  width: 260px;
 }
+.main-content .table {
+  width: 100%;
+}
+.main-content .table table {
+  width: 100%;
+  text-align: center;
+}
+
 .header {
   width: 100%;
   text-align: center;
@@ -57,12 +66,16 @@ body {
 }
 .header .menu {
   margin: auto;
+  width: 30%;
+  padding-top: 47px;
 }
-.header .menu a {
-  width: 30px;
-  border: 1px solid green;
-  background-color: #7FFFD4;
-  text-decoration-line: none;
+.header .logo_name {
+  display: inline-flex;
+  float: left;
+  -webkit-text-stroke: 2px black;
+  -webkit-text-fill-color: #febb02;
+  margin-top: 44px;
+  padding-left: 10px;
 }
 
 .btns {
@@ -71,22 +84,8 @@ body {
 }
 
 .btn {
-  box-shadow: 0 1px 4px black, -23px 0 20px -23px rgba(0, 0, 0, 0.8), 23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  background-color: white;
   width: 150px;
-  height: 30px;
-  -webkit-transition: background-color 1s ease-out;
-  -moz-transition: background-color 1s ease-out;
-  -o-transition: background-color 1s ease-out;
-  transition: background-color 1s ease-out;
-}
-.btn:hover {
-  background-color: #b0feff;
-  cursor: pointer;
-  -webkit-transition: background-color 1s ease-out;
-  -moz-transition: background-color 1s ease-out;
-  -o-transition: background-color 1s ease-out;
-  transition: background-color 1s ease-out;
+  margin: 0 10px;
 }
 
 .footer {

@@ -9,43 +9,46 @@
 @section('content')
     <div class="main-content">
         <div class="form">
-            <form action="{{route('create_reservation')}}" method="post">
+            <form action="{{route('create_reservation')}}" method="post" class="form-floating">
                 {{ csrf_field() }}
                 @if (session('error'))
                     <div class=" element alert alert-danger">{{ session('error') }}</div>
                 @endif
 
-                <div class="element">
-                    <label for="roomsel">Room</label>
+                <div class="element form-floating ">
                     @if($rooms)
-                        <select name="room_name" id="roomsel">
+                        <select name="room_name" id="roomsel" class="form-select" aria-label="Default select example">
                             @foreach($rooms as $room)
                                 <option value="{{$room->id}}">{{$room->name}}</option>
                             @endforeach
                         </select>
+                        <label for="roomsel">Room</label>
                     @endif
                 </div>
-                <div class="element">
-                        <label for="date">Date</label>
-                        <input type="text" name="date" id="date" class="datepick" value="" required autocomplete="off">
+                <div class="element form-floating">
+                        <input type="text" name="date" id="date" class="datepick form-control " value="" required autocomplete="off">
+                    <label for="date">Date</label>
+
                 </div>
-                <div class="element">
-                    <label for="name_client">Nach- und Vorname</label>
+                <div class="element form-floating ">
                     <input type="text" name="name_client" value="" id="name_client"
-                           class="" required>
+                           class="form-control" required>
+                    <label for="name_client">Nach- und Vorname</label>
+
                 </div>
-                <div class="element">
-                    <label for="email">Email</label>
+                <div class="element form-floating">
                     <input type="email" name="email" value="" id="email"
-                           class="" required>
+                           class="form-control" required>
+                    <label for="email">Email</label>
                 </div>
-                <div class="element">
-                    <label for="phone">Telefonummer</label>
+                <div class="element form-floating">
                     <input type="tel" name="phone" value="" id="phone"
-                           class="" required minlength="14">
+                           class="form-control" required minlength="14">
+                    <label for="phone">Telefonummer</label>
+
                 </div>
                 <div class="btns">
-                        <button class="btn">Book</button>
+                        <button class="btn  btn-primary">Book</button>
                 </div>
             </form>
         </div>

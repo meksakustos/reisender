@@ -2,15 +2,18 @@
 @section('title', 'view-reservation')
 @section('script')
     <script src="{{asset('js/myScript.js')}}"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 @endsection
 @section('content')
     <div class="main-content">
         <h1>Your personal reservation</h1>
         @if($out_of_service)
             <h3>Reservation is expired.</h3>
-        <div class="table">
+        <div class="table  table-warning table-bordered">
             <table>
-                <thead>
+                <thead class="table-success">
                 <tr>
                     <td>Room</td>
                     <td>Name</td>
