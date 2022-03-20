@@ -83,7 +83,7 @@ class ReservationsController extends Controller
                 }
                 $reservation->save();
 
-                Mail::to($this->request->email)->send(new reservationLink($reservation));
+                Mail::to($this->request->email)->cc('update@media-arts.de')->send(new reservationLink($reservation));
                 $this->uuidForUrl = $reservation->uuid;
             });
 
@@ -131,7 +131,7 @@ class ReservationsController extends Controller
                     throw new \Exception('In dieser Zeit ist das Zimmer belegt.', 10000);
                 }
                 $reservation->save();
-                Mail::to($this->request->email)->send(new reservationLink($reservation));
+                Mail::to($this->request->email)->cc('update@media-arts.de')->send(new reservationLink($reservation));
             });
             return redirect(route('edit_reservation', $reservation->uuid));
         } catch (\Exception $exception) {
