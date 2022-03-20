@@ -151,4 +151,11 @@ class ReservationsController extends Controller
         $reservation->delete();
         return redirect(route('booking'));
     }
+//    public function getDate(){
+//        $id = $this->request->room_id;
+//        $response =[];
+//        $result = Reservation::where('room_id', $id)->get();
+//        $response['reservation'] = $result;
+//        return response()->json($response);
+//    }
 }
