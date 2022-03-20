@@ -35,14 +35,14 @@ class Reservation extends Model
                 if ($id) {
                     $query->where('id', '<>', $id);
                 }
-                $query->where('room_id', '==', $room_id);
+                $query->where('room_id', $room_id);
                 $query->whereDate('date_start', '>=', $start_date);
                 $query->whereDate('date_start', '<=', $end_date);
             })->orWhere(function($query) use ($start_date, $end_date, $room_id, $id) {
                 if ($id) {
                     $query->where('id', '<>', $id);
                 }
-                $query->where('room_id', '==', $room_id);
+                $query->where('room_id', $room_id);
                 $query->whereDate('date_end', '>=', $start_date);
                 $query->whereDate('date_end', '<=', $end_date);
             })->count();
